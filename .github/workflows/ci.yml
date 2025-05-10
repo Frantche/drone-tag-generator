@@ -1,0 +1,96 @@
+sname: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+permissions:
+  contents: read    # pour checkout, tests
+  packages: read    # pour actions comme docker/login-action
+
+jobs:
+  test:
+    name: 🧪 Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go 1.24
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.24
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Run unit tests
+        run: go test ./...
+
+  release:
+    name: 🚀 Release on main
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    permissions:
+      contents: write   # pour créer le tag et la release
+      packages: write   # pour pousser l’image Docker
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go 1.24
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.24
+
+      - name: Get next version
+        id: get_version
+        uses: thenativeweb/get-next-version@main
+        with:
+          prefix: ''  # ou 'v' si vous voulez un préfixe
+
+      - name: Build binary
+        run: go build -ldflags="-s -w" -o gotags
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ steps.get_version.outputs.version }}
+            ghcr.io/${{ github.repository }}:latest
+
+      - name: Create and push Git tag
+        env:
+          VERSION: ${{ steps.get_version.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "$VERSION"
+          git push origin "$VERSION"
+
+      - name: Create GitHub Release & upload binary
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: Release ${{ steps.get_version.outputs.version }}
+          files: gotags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
