@@ -1,14 +1,15 @@
 module github.com/Frantche/drone-tag-generator
+
 go 1.24.1
 
 require (
 	github.com/Masterminds/semver v1.5.0
-	github.com/thenativeweb/get-next-version v0.0.0-20250421220545-5577293a4790
+	github.com/go-git/go-git/v5 v5.16.1
+	github.com/thenativeweb/get-next-version v0.0.0-20250609050716-389a235223cc
 )
 
 require (
 	dario.cat/mergo v1.0.0 // indirect
-	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Microsoft/go-winio v0.6.2 // indirect
 	github.com/ProtonMail/go-crypto v1.1.6 // indirect
 	github.com/cloudflare/circl v1.6.1 // indirect
@@ -16,7 +17,6 @@ require (
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.6.2 // indirect
-	github.com/go-git/go-git/v5 v5.16.0 // indirect
 	github.com/golang/groupcache v0.0.0-20241129210726-2c02b8208cf8 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
