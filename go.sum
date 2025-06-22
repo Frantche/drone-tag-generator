@@ -96,6 +96,8 @@ github.com/thenativeweb/get-next-version v0.0.0-20250421220545-5577293a4790 h1:P
 github.com/thenativeweb/get-next-version v0.0.0-20250421220545-5577293a4790/go.mod h1:2Otu7gpLpi90l2tZsX1IGtQ9Elus3+HvrwFgQEq9l/Q=
 github.com/thenativeweb/get-next-version v0.0.0-20250609050716-389a235223cc h1:KmtmEpVEl4b3k3gDM6VDpAJjuqdE2SIl9CbpqDDdtuo=
 github.com/thenativeweb/get-next-version v0.0.0-20250609050716-389a235223cc/go.mod h1:p/VbJIhcA64FYrSCWWYmIROrHu7Yu6Dg8D5XxQWEgHU=
+github.com/thenativeweb/get-next-version v0.0.0-20250616045137-5fbc32a280d7 h1:z3GDhJYSXzbvFOh1Ju3w9ohJkt6gaZDxKiS6Bcx5yuM=
+github.com/thenativeweb/get-next-version v0.0.0-20250616045137-5fbc32a280d7/go.mod h1:gVmOlFDtDINAeafPAHUO7pCvVsc73fQsAfivl1edI7A=
 github.com/xanzy/ssh-agent v0.3.3 h1:+/15pJfg/RsTxqYcX6fHqOXZwwMP+2VyYWJeWM2qQFM=
 github.com/xanzy/ssh-agent v0.3.3/go.mod h1:6dzNDKs0J9rVPHPhaGCukekBHKqfl+L3KghI1Bc68Uw=
 golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d/go.mod h1:IxCIyHEi3zRg3s0A5j5BB6A9Jmi73HwBIUl50j+osU4=
