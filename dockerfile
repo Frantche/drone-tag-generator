@@ -1,5 +1,5 @@
 # Utilise l’image officielle Go 1.24 (Alpine) comme builder
-FROM golang:1.24-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 # Installe git pour le go mod download (si besoin de dépôts VCS) et les CA (pour certains modules)
 RUN apk add --no-cache git ca-certificates
