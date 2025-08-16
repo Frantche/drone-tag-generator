@@ -1,3 +1,7 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": true,
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "automergeComment": "🤖 Auto‑merged by Renovate when all checks pass",
 }
