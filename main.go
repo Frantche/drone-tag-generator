@@ -22,6 +22,13 @@ func run() error {
 	if branch == "" {
 		return fmt.Errorf("DRONE_BRANCH non défini")
 	}
+	// Use DRONE_SOURCE_BRANCH for pull requests
+	if os.Getenv("DRONE_PULL_REQUEST") != "" {
+		sourceBranch := os.Getenv("DRONE_SOURCE_BRANCH")
+		if sourceBranch != "" {
+			branch = sourceBranch
+		}
+	}
 	build := os.Getenv("DRONE_BUILD_NUMBER")
 	if build == "" {
 		build = "0"
