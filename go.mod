@@ -1,6 +1,6 @@
 module github.com/Frantche/drone-tag-generator
 
-go 1.26.0
+go 1.26.1
 
 require (
 	github.com/Masterminds/semver v1.5.0
