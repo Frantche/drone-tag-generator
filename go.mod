@@ -4,7 +4,7 @@ go 1.26.2
 
 require (
 	github.com/Masterminds/semver v1.5.0
-	github.com/go-git/go-git/v5 v5.17.2
+	github.com/go-git/go-git/v5 v5.18.0
 	github.com/thenativeweb/get-next-version v0.0.0-20250825051235-dc74a427ff43
 )
 
