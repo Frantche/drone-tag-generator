@@ -4,7 +4,7 @@ go 1.26.5
 
 require (
 	github.com/Masterminds/semver v1.5.0
-	github.com/go-git/go-git/v5 v5.19.1
+	github.com/go-git/go-git/v5 v5.19.2
 	github.com/thenativeweb/get-next-version v0.0.0-20250825051235-dc74a427ff43
 )
 
@@ -31,9 +31,9 @@ require (
 	github.com/spf13/cobra v1.9.1 // indirect
 	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
-	golang.org/x/crypto v0.50.0 // indirect
+	golang.org/x/crypto v0.53.0 // indirect
 	golang.org/x/exp v0.0.0-20260410095643-746e56fc9e2f // indirect
-	golang.org/x/net v0.53.0 // indirect
-	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/net v0.56.0 // indirect
+	golang.org/x/sys v0.46.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 )
